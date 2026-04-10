@@ -8,7 +8,7 @@ def main():
 
     # Within this single life,
     # Should past loop through
-    while world.alive():
+    while world.alive() and me.alive():
         # I will always love you
         me.say(you, "I love you")
         me.hug(you)
