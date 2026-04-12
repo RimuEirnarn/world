@@ -29,13 +29,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-        #   cache: 'pip' # caching pip dependencies
-      - name: Install build dependency
-        run: pip install -r requirements.txt
       - name: Build site content
         run: scripts/build.sh
       - name: Setup Pages
