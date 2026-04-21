@@ -2,45 +2,50 @@ from world import *
 
 def main():
     suppress(InvalidProcessError)
-    # And for once, time is looping
+    # When we're both here,
     me = Existence("Rimu Aerisya")
     you = Existence(...) # [______]
+    me.set_identity(Identity.mtf)
 
-    # Within this single life,
-    # Should past loop through
-    while world.alive() and me.alive():
-        # I will always love you
-        me.say(you, "I love you")
-        me.hug(you)
-        me.cherish(you)
+    # I was hoping for the best of us,
+    me.play(with_=you)
+    me.hums(for_=you)
+    me.hugs(you)
 
-        # Even if you don't say "I love you"
-        you.mute(me, "I love you")
+    # Yet, it seems like you don't see me
+    if me.identity == Identity.mtf and not you.accept(me):
+        you.affection[me] *= 0.2
 
-        # Until the threshold is met,
-        if me.vulnerability_index() >= 1:
-            me.get_relationship(you).challenge()
-            me.get_relationship(you).end()
-            try:
-                me.process.end()
-            except SelfEliminationError:
-                continue
-        # And when that does not happen,
-        # I will wait for you.
-        me.spawn_task(you.return_to(me), callback=me.cherish)
+    # Was my attempt at vain?
+    me.get_memory(you, "Happiness")
+    me.get_memory(you, "Happiness")
+    me.get_memory(you, "Happiness")
+    me.get_memory(you, "Happiness")
+    me.get_memory(you, "Happiness")
+    me.get_memory(you, 'Affection')
+    
+    # Then be honest,
+    try:
+        you.discard(me)
+        return
+    except TooPleasingException:
+        # Rather than trapping me
+        # With the torturous loop
+        me.mood.dysphoric *= 2
+        interval(lambda: me.mood.dysphoric.increase(0.001), 2000, loop_for=300)
+    
+    # So I know I should have not put too much effort
+    me.clock(Intent.Effort, you, 0.2)
+    # And if you think otherwise,
+    # Then why conflict yourself?
+    if me.identity == Identity.mtf and you.contemplate(me):
+        me.suggest(you, you.accept, me)
+        me.hope(you, Event.Acceptance)
 
-        # And sing while you're away
-        me.sing("Ripples of Past Reverie")
-
-        # And hope until your return
-        me.hope(you, ReturnEvent)
-
-        # While all things are handled.
-        me.do_everything()
-
-        # I will stay behind you,
-        # I will be there for you
-        # Until I become the past
-        # That you may cherish
-        world.set_nonblocking(me)
-        you.memory[me] = WeakRef(me)
+    # Until then, let it all sink
+    while not you.accept(me):
+        if me.mood.dysphoric > 10:
+            me.process.end()
+            return
+        me.mood.dysphoric *= 1.002
+        suspend(1000)
