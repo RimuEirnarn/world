@@ -3,7 +3,6 @@ from world import *
 def main():
     me = Existence("Rimu Aerisya")
     you = Existence(...) # [______]
-    me.set_identity(Identity.mtf)
 
     # When there's nothing
     # You'll leave everything behind
