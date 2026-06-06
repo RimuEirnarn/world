@@ -3,5 +3,6 @@
         "main.py"
     ],
     "python.analysis.typeCheckingMode": "off",
-    "python.analysis.ignore": ["main.py"]
+    "python.analysis.ignore": ["main.py"],
+    "pylint.enabled": false
 }
