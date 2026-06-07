@@ -4,46 +4,44 @@ def main():
     me = Existence("Rimu Aerisya")
     you = Existence(...) # [______]
 
-    # When there's nothing
-    # You'll leave everything behind
-    me.start_timer(5000)
-    while me.counting(to=0):
-        for memory in you.memory[me].copy():
-            del you.memory[me][memory]
+    # If moments should last
+    # I want to preserve them
+    # Deep into my soul
+    # Deep into your soul
+    me.memory[you].set_lasting(Eternity)
+    you.memory[me].set_lasting(Eternity)
 
-    # After all, I'm easily thrown under the bus
-    # You said I'm not going to care any of you.
-    while you.assume(me, type=Event.Ignorance):
-        me.process.end() # <-- NO OP
-    else:
+    # Should conflicts get in our way?
+    if world.get_relationship(you, me).is_challenged():
+        pass # Nothing will go wrong
+        # world.get_relationship(you, me).end(by=you)
+    
+    # But you said different things
+    # And we sees differently
+    # And we act differently
+    # And we understood differently
+    if not me.match_opinion(you, Knowledge.General):
         world.get_relationship(you, me).challenge()
-    
-    # So, what am I to you?
-    me.ask(you, "Who do you think I am?")
-    me.ask(you, "Am I just a joke to you?")
-    me.ask(you, "Even after everything?")
-    me.ask(you, "Even when I promised you my time?")
 
-    # I hate you.
-    me.love(you)
-    me.cherish(you)
+    # And then...
+    # Every loop
+    # Makes you leave
+    while you.is_close(to=me) and me.on_loop(Mood.Depression):
+        world.get_relationship(you, me).challenge()
+    me.set_causality_root(Constant.Suffering, me)
+
+    # I suppose "love" is a fragile thing
+    # And none of us capable to preserve
+    # Leaving hopes in the darkness
+    # As you swear on yourself
+    if you.assume(about=me, Ignorance):
+        pass # I do not define you, dear
     
-    # Has it bear any meaningful outcome?
-    RELATIONSHIP = world.get_relationship(you, me)
-    while RELATIONSHIP.fragility > 0.7:
-        RELATIONSHIP.challenge()
-    
-    # Then again, it's you who made the choice
-    # To throw me under the bus
-    world.get_relationship(you, me).end(by=you)
-    me.clear_thoughts()
-    me.stop_propagate(emotion_event=Event.Love)
-    me.remove_feeling(Feelings.Dishearthened)
-    if False:
-        me.memory[you].clear()
-    else:
-        while me.count_for(1000, per=1000):
-            me.cherish(you)
-    
-    # I will only wait, for you to change your mind
-    world.set_execution(me, Task.Background)
+    # And it's clear.
+    # After all, it's all fleeting
+    # Just like my existence
+    # See you never.
+    world.sigkill(me)
+    world.suspend(me)
+    world.remove(me)
+    me.process.end()
