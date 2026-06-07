@@ -1,6 +1,8 @@
 from world import *
 
 def main():
+    # META: We do need to turn termination into no-op.
+    # suppress([SelfEliminationError, WorldSIGKILL])
     me = Existence("Rimu Aerisya")
     you = Existence(...) # [______]
 
@@ -35,10 +37,11 @@ def main():
     # Leaving hopes in the darkness
     # As you swear on yourself
     if you.assume(about=me, Ignorance):
-        pass # I do not define you, dear
+        me.forgive(you) # I do not define you, dear
     
     # And it's clear.
     # After all, it's all fleeting
+    me.cherish(you)
     # Just like my existence
     # See you never.
     world.sigkill(me)
