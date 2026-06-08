@@ -1,7 +1,7 @@
 from world import *
 
 def main():
-    # META: We do need to turn termination into no-op.
+    # META: We do not need to turn termination into no-op.
     # suppress([SelfEliminationError, WorldSIGKILL])
     me = Existence("Rimu Aerisya")
     you = Existence(...) # [______]
